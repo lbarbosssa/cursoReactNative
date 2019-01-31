@@ -1,0 +1,8 @@
+Criando um componente funcional
+    por padrão utilizamos o props
+    Na hora que chamamos esse componente, podemos dar um nome e passar determinado valor
+    E para acessarmos esse valor, no proprio componente utilizaremos o props.nomeatributo
+
+    Caso não for necessario passar paramemtros para o componente, nem precisar usar o props
+
+
