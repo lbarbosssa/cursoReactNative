@@ -8,7 +8,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.f20}>App!</Text>
-        <Simples texto="Flex"/>
+        <Simples texto="Bem Simples!"/>
       </View>
     )
   }

@@ -5,4 +5,10 @@ Criando um componente funcional
 
     Caso não for necessario passar paramemtros para o componente, nem precisar usar o props
 
+Add estilo
+    O ideal é criar uma pasta com os estilos (assim podemos utilizar em varios componentes)
+    O estilo é um componente baseado em flexbox e nada mais é q um obj, com um nome como se fosse de classe, e os parametros dentro
+    Depois de criado basta adiciona o atributo style no componente, passando o nome do export, mais o obj
+    style={[Padrao.ex]}
+    Não é necessário passar num array, apenas se for passar mais que um obj de estilo
 

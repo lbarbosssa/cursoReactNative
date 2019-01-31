@@ -1,6 +1,8 @@
 import React from 'react'
 import { Text } from 'react-native'
 
+import Padrao from '../estilo/Padrao'
+
 /*
 export default function (props) {
       return <Text>{props.texto}</Text>
@@ -11,8 +13,5 @@ export default function (props) {
 //outra forma de devolvar o componente é com arrow function e array. Tbm pode usar a View como div no react
 
 export default props => {
-    return [
-        <Text key={0}>Arrow 1: {props.texto}</Text>,
-        <Text key={1}>Arrow 2: {props.texto}</Text>
-    ]
+    return <Text style={[Padrao.ex]}>Arrow 1: {props.texto}</Text>
 }
