@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
 import Simples from './componentes/Simples'
+import ParImpar from './componentes/Pareimpar'
 
 export default class App extends Component {
   render() {
@@ -9,6 +10,7 @@ export default class App extends Component {
       <View style={styles.container}>
         <Text style={styles.f20}>App!</Text>
         <Simples texto="Bem Simples!"/>
+        <ParImpar numero={2} />
       </View>
     )
   }
