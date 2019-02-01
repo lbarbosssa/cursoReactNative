@@ -9,5 +9,8 @@ export default StyleSheet.create({
         borderColor: '#222',
         fontSize: 20,
         fontWeight: 'bold',
+    },
+    bg: {
+        backgroundColor: '#123456'
     }
 })

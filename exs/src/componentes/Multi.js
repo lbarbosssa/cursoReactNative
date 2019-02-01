@@ -1,6 +1,8 @@
 import React from 'react'
 import { Text } from 'react-native'
 import Padrao from '../estilo/Padrao'
+import { setRootViewBackgroundColor } from 'react-native-root-view-background'
+
 
 export const Inverter = props => {
     const inv = props.texto.split('').reverse().join('')
@@ -8,6 +10,7 @@ export const Inverter = props => {
 } 
 
 export const MegaSena = props => {
+    
     const [min, max] = [1, 60]
     const numeros = Array(props.numeros || 6).fill(0)
 

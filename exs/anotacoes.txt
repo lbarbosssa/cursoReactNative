@@ -17,3 +17,23 @@ Renderização condicional
     O numero é passado via props
     dai é só testar e retornar
     No componente tem diversas formas, utilizando function ou operador ternario
+
+Navegação
+    Adicionar no package.json a dependencia do react-navigation 2.7.0
+    Após dar um npm i
+    Criar um Menu.js no src
+    Importar 
+        React
+        createDrawerNavigator do react-navigation
+        Os componentes dos itens do menu
+
+    Exportar o createDrawerNavigator passando o obj com os itens do menu e configurção de menu
+        screen = componente que vai ser carregado na tela (não precisa ser passado com arrow function, apenas quando for passar paramentrod)
+        navigationOptions = onj para passar informações de navegação
+            title: Titulo para usar no menu, caso não utilize, o padrão será o nome da primeira chave
+        Também da pra passar outros parametros, como o drawerwidth para definir a largura do menu
+
+    Entrar no index.js e trocar o apontamento do app para o menu
+        A partir de agora o primeiro component a ser carregado é o menu
+
+
