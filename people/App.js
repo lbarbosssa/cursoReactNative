@@ -9,7 +9,7 @@ export default class App extends Component {
   render (){
     return (
       <View>
-        <Header />
+        <Header title="Pessoas!"/>
       </View>
     )
   }
