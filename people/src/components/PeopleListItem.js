@@ -10,7 +10,7 @@ const PeopleListItem = props => {
     return (
         <TouchableOpacity onPress={() => {
             navigateToPeopleDetail({ people })
-            }}>
+            }} >
             <View style={styles.line}>
                 <Image style={styles.avatar} source={{uri: people.picture.thumbnail}}/>
                 <Text style={styles.lineText} >
@@ -26,10 +26,9 @@ const styles = StyleSheet.create({
         height: 60,
         borderBottomWidth: 1,
         borderBottomColor: "#bbb",
-
         alignItems: 'center',
-        flexDirection: 'row'
-
+        flexDirection: 'row',
+        padding: 10
     },
     lineText: {
         fontSize: 20,
