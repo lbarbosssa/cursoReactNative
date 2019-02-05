@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
 import Line from '../components/Line'
 
-
 class PeopleDetailPage extends Component {
     render (){
         const { people } = this.props.navigation.state.params
@@ -18,6 +17,7 @@ class PeopleDetailPage extends Component {
                     <Line label="Estado:" content={people.location.state} />
                     <Line label="Tel:" content={people.phone} />
                     <Line label="Cel:" content={people.cell} />
+                    <Line label="Nacionalidade:" content={people.nat} />
                 </View>
 
             </View>
