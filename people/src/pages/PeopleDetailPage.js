@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
+import Line from '../components/Line'
 
 
 class PeopleDetailPage extends Component {
@@ -11,13 +12,12 @@ class PeopleDetailPage extends Component {
                 <Image 
                     source={{uri: people.picture.large}}
                     style={styles.avatar} />
-                <View style={styles.detailContainer} >
-                    <View style={styles.line} >
-                        <Text style={[styles.cell, styles.textBold]} >Email:</Text>
-                        <Text style={styles.cell} >{ people.email }</Text>
-                    </View>
-                    
-                
+                <View style={styles.detailContainer} >              
+                    <Line label="Email:" content={people.email} />
+                    <Line label="Cidade:" content={people.location.city} />
+                    <Line label="Estado:" content={people.location.state} />
+                    <Line label="Tel:" content={people.phone} />
+                    <Line label="Cel:" content={people.cell} />
                 </View>
 
             </View>
@@ -39,18 +39,6 @@ const styles = StyleSheet.create({
         marginTop: 20,
         elevation: 1,
         borderRadius: 5
-    },
-    line: {
-        flexDirection: 'row',
-        paddingTop: 3,
-        paddingBottom: 3,
-    },
-    textBold: {
-        fontWeight: 'bold'
-    },
-    cell: {
-        fontSize: 18,
-        paddingLeft: 5
     }
 })
 
