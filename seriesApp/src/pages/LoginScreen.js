@@ -26,21 +26,22 @@ export default class LoginPage extends Component {
 
   render() {
     return (
-      <View>
-        <FormRow>
+      <View style={styles.container}>
+        <FormRow first>
           <TextInput
             style={styles.input}
             placeholder="user@email.com"
             value={this.state.mail}
             onChangeText={value => this.onChangeHandler('mail', value)} />
         </FormRow>
-        <FormRow>
+       
+        <FormRow last>
           <TextInput
             style={styles.input}
             placeholder="Senha super segura"
             value={this.state.password}
             onChangeText={value => this.onChangeHandler('password', value)}
-            secureTextEntry={true} />
+            secureTextEntry />
         </FormRow>
 
         <Button
@@ -53,6 +54,10 @@ export default class LoginPage extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    paddingRight: 10,
+    paddingLeft: 10
+  },
   input: {
     paddingLeft: 5,
     paddingRight: 5,
