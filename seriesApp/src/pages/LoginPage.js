@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 
+import firebase from '@firebase/app'
+import'@firebase/auth'
+
 import { View, Text, TextInput, StyleSheet, Button, Alert } from 'react-native';
 import FormRow from '../components/FormRow'
+
+
 
 export default class LoginPage extends Component {
   constructor(props) {
@@ -14,14 +19,38 @@ export default class LoginPage extends Component {
 
   }
 
-  onChangeHandler(field, value){
+  componentDidMount() {
+    var config = {
+      apiKey: "AIzaSyBncTRkbUCstS9hePv2XrM15lfEHqj-Sq0",
+      authDomain: "series-99b44.firebaseapp.com",
+      databaseURL: "https://series-99b44.firebaseio.com",
+      projectId: "series-99b44",
+      storageBucket: "series-99b44.appspot.com",
+      messagingSenderId: "1019745143315",
+      
+    };
+    firebase.initializeApp(config);
+    
+    
+  }
+
+  onChangeHandler(field, value) {
     this.setState({
       [field]: value
     })
   }
 
-  tryLogin(){
+  tryLogin() {
     //Aqui podemos executar uma validação, ou enviar um user para api e etc
+
+    firebase
+    .auth()
+    .signInWithEmailAndPassword('admin@email.com', '123456')
+      .then(user => {
+        
+      }).catch(error => {
+        
+    }) 
   }
 
   render() {
@@ -34,7 +63,7 @@ export default class LoginPage extends Component {
             value={this.state.mail}
             onChangeText={value => this.onChangeHandler('mail', value)} />
         </FormRow>
-       
+
         <FormRow last>
           <TextInput
             style={styles.input}
@@ -45,8 +74,8 @@ export default class LoginPage extends Component {
         </FormRow>
 
         <Button
-        title="Entrar"
-        onPress={() => this.tryLogin()} />
+          title="Entrar"
+          onPress={() => this.tryLogin()} />
 
       </View>
     );
