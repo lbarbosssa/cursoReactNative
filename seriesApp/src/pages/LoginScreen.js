@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Button, Alert } from 'react-native';
 import FormRow from '../components/FormRow'
 
 export default class LoginPage extends Component {
@@ -18,6 +18,10 @@ export default class LoginPage extends Component {
     this.setState({
       [field]: value
     })
+  }
+
+  tryLogin(){
+    //Aqui podemos executar uma validação, ou enviar um user para api e etc
   }
 
   render() {
@@ -38,6 +42,11 @@ export default class LoginPage extends Component {
             onChangeText={value => this.onChangeHandler('password', value)}
             secureTextEntry={true} />
         </FormRow>
+
+        <Button
+        title="Entrar"
+        onPress={() => this.tryLogin()} />
+
       </View>
     );
   }
