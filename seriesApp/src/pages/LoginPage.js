@@ -23,7 +23,8 @@ export default class LoginPage extends Component {
     this.state = {
       mail: '',
       password: '',
-      isLoading: false
+      isLoading: false,
+      message: ''
     }
 
   }
@@ -50,7 +51,7 @@ export default class LoginPage extends Component {
   }
 
   tryLogin() {
-    this.setState({ isLoading: true })
+    this.setState({ isLoading: true, message: '' })
     const { mail, password } = this.state
     setTimeout(() => {
 
@@ -58,12 +59,37 @@ export default class LoginPage extends Component {
         .auth()
         .signInWithEmailAndPassword(mail, password)
         .then(user => {
-
+          this.setState({message: 'Sucesso!'})
         }).catch(error => {
-
+          this.setState({message: this.getMessageByErrrorCode(error.code)})
         }).then(() => this.setState({ isLoading: false }))
     }, 1000)
     
+  }
+
+  getMessageByErrrorCode(errorCode) {
+    switch (errorCode){
+      case 'auth/wrong-password':
+        return 'Senha incorreta'
+      case 'auth/user-not-found':
+        return 'Usuário não encontrado'
+      default: 
+        return 'Error desconhecido'
+         
+    }
+  }
+
+  renderMessage(){
+    const { message } = this.state;
+    if (!message){
+      return null
+    }
+
+    return (
+      <View>
+        <Text>{message}</Text>
+      </View>
+    )
   }
 
   renderButton() {
@@ -76,6 +102,7 @@ export default class LoginPage extends Component {
         onPress={() => this.tryLogin()} />
     )
   }
+
 
   render() {
     return (
@@ -98,6 +125,8 @@ export default class LoginPage extends Component {
         </FormRow>
 
         {this.renderButton()}
+        {this.renderMessage()}
+       
 
       </View>
     );
