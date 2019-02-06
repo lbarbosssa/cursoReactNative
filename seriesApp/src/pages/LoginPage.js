@@ -53,35 +53,63 @@ export default class LoginPage extends Component {
   tryLogin() {
     this.setState({ isLoading: true, message: '' })
     const { mail, password } = this.state
-    setTimeout(() => {
 
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(mail, password)
-        .then(user => {
-          this.setState({message: 'Sucesso!'})
-        }).catch(error => {
-          this.setState({message: this.getMessageByErrrorCode(error.code)})
-        }).then(() => this.setState({ isLoading: false }))
-    }, 1000)
-    
+    const loginUserSucess = user => {
+      this.setState({ message: 'Sucesso!' })
+    }
+
+    const loginUserFailed = error => {
+      this.getMessageByErrrorCode(error.code)
+    }
+
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(mail, password)
+      .then(loginUserSucess).catch(error => {
+        if (error.code === 'auth/user-not-found') {
+          Alert.alert(
+            'usuário, não encontrado',
+            'Deseja criar um cadastro com as infromações inseridas?',
+            [
+              {
+                text: 'Não',
+                onPress: () => { },
+                style: 'cancel' //IOS
+              },
+              {
+                text: 'Sim',
+                onPress: () => {
+                  firebase
+                    .auth()
+                    .createUserWithEmailAndPassword(mail, password)
+                    .then(loginUserSucess)
+                    .catch(loginUserFailed)
+                }
+              }
+            ],
+            { cancelable: false }
+          )
+          return
+        }
+        loginUserFailed(error)
+      }).then(() => this.setState({ isLoading: false }))
   }
 
   getMessageByErrrorCode(errorCode) {
-    switch (errorCode){
+    switch (errorCode) {
       case 'auth/wrong-password':
         return 'Senha incorreta'
       case 'auth/user-not-found':
         return 'Usuário não encontrado'
-      default: 
+      default:
         return 'Error desconhecido'
-         
+
     }
   }
 
-  renderMessage(){
+  renderMessage() {
     const { message } = this.state;
-    if (!message){
+    if (!message) {
       return null
     }
 
@@ -126,7 +154,7 @@ export default class LoginPage extends Component {
 
         {this.renderButton()}
         {this.renderMessage()}
-       
+
 
       </View>
     );
