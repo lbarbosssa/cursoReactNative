@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 
 import firebase from '@firebase/app'
-import'@firebase/auth'
+import '@firebase/auth'
 
-import { View, Text, TextInput, StyleSheet, Button, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  Button,
+  Alert,
+  ActivityIndicator
+} from 'react-native';
 import FormRow from '../components/FormRow'
 
 
@@ -14,7 +22,8 @@ export default class LoginPage extends Component {
 
     this.state = {
       mail: '',
-      password: ''
+      password: '',
+      isLoading: false
     }
 
   }
@@ -27,11 +36,11 @@ export default class LoginPage extends Component {
       projectId: "series-99b44",
       storageBucket: "series-99b44.appspot.com",
       messagingSenderId: "1019745143315",
-      
+
     };
     firebase.initializeApp(config);
-    
-    
+
+
   }
 
   onChangeHandler(field, value) {
@@ -41,16 +50,31 @@ export default class LoginPage extends Component {
   }
 
   tryLogin() {
-    //Aqui podemos executar uma validação, ou enviar um user para api e etc
+    this.setState({ isLoading: true })
+    const { mail, password } = this.state
+    setTimeout(() => {
 
-    firebase
-    .auth()
-    .signInWithEmailAndPassword('admin@email.com', '123456')
-      .then(user => {
-        
-      }).catch(error => {
-        
-    }) 
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(mail, password)
+        .then(user => {
+
+        }).catch(error => {
+
+        }).then(() => this.setState({ isLoading: false }))
+    }, 1000)
+    
+  }
+
+  renderButton() {
+    if (this.state.isLoading) {
+      return <ActivityIndicator size="large" color="#6ca2f7" />
+    }
+    return (
+      <Button
+        title="Entrar"
+        onPress={() => this.tryLogin()} />
+    )
   }
 
   render() {
@@ -73,9 +97,7 @@ export default class LoginPage extends Component {
             secureTextEntry />
         </FormRow>
 
-        <Button
-          title="Entrar"
-          onPress={() => this.tryLogin()} />
+        {this.renderButton()}
 
       </View>
     );
