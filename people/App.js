@@ -25,11 +25,12 @@ const StackNavigator = createStackNavigator ({
 }, {
   defaultNavigationOptions: {
     title: 'Pessoas!',
+    headerBackTitle: ' ',
     headerTintColor: 'white',
     headerStyle: {
       backgroundColor: '#6ca2f7',
       borderBottomWidth: 1,
-      botderBottomColor: '#C5C5C5'
+      borderBottomColor: '#C5C5C5'
     },
     headerTitleStyle: {
       color: 'white',

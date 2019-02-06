@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, Image, TouchableOpacity, Platform } from 'react-native'
 
 import { capitalizeFirstLetter } from '../util'
 
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         width: 40,
         flex: 1,
         marginLeft: 15,
-        borderRadius: 50
+        borderRadius: (Platform.OS === 'ios') ? 20 : 50
 
     }
 })

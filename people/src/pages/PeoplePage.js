@@ -22,7 +22,7 @@ export default class PeoplePage extends Component {
   componentDidMount() {
     this.setState({ loading: true })
     axios
-      .get('https://randomuser.me/api?nat=br&results=100')
+      .get('https://randomuser.me/api?nat=br&results=20')
       .then(response => {
         const { results } = response.data
         this.setState({

@@ -25,10 +25,10 @@ const styles = StyleSheet.create({
         flex: 1
     },
     longLabel: {
-        fontSize: 12
+        fontSize: 11
     },
     cell: {
-        fontSize: 18,
+        fontSize: 16,
         paddingLeft: 5
     },
     content: {

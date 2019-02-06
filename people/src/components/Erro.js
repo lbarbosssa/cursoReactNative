@@ -1,28 +1,34 @@
-import React, { Component } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import React, { Component } from "react";
+import { View, StyleSheet, Text } from "react-native";
 
-const Erro = props =>{
-    return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Oh não, algo deu errado =(</Text>
-        </View>
-    )
-}
+const Erro = props => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Oh não, algo deu errado =(</Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-        alignSelf: 'center'
+  container: {
+    alignSelf: "center",
+    backgroundColor: "red",
+    borderRadius: 10,
+    elevation: 15,
+    opacity: 0.6,
+    shadowOffset: {
+      width: -5,
+      height: 5
     },
-    text: {
-       color: 'white',
-       fontSize: 18,
-       backgroundColor: 'red',
-       padding: 25,
-       borderRadius: 10,
-       opacity: 0.7,
-       elevation: 12
+    shadowColor: "black",
+    shadowOpacity: 0.5,
+    
+  },
+  text: {
+    color: "white",
+    fontSize: 18,
+    padding: 25
+  }
+});
 
-    }
-})
-
-export default Erro
+export default Erro;
