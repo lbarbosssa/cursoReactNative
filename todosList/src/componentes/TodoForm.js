@@ -1,11 +1,17 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import Input from "./Input";
 
 export default class TodoForm extends React.Component {
     render() {
         return (
-            <View style={styles.container}>
-                <Text>TodoForm!</Text>
+           <View style={styles.container}>
+                <View>
+                    <Input />
+                </View>
+                <View>
+                    {/* Button */}
+                </View>
             </View>
         )
     }
@@ -13,6 +19,6 @@ export default class TodoForm extends React.Component {
 
 const styles = StyleSheet.create({
     container:{
-        paddingTop: 50
+        
     }
 })
