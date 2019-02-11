@@ -1,16 +1,19 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet, Button } from "react-native";
 import Input from "./Input";
 
 export default class TodoForm extends React.Component {
     render() {
         return (
-           <View style={styles.container}>
-                <View>
+           <View style={styles.formContainer}>
+                <View style={styles.inputContainer}>
                     <Input />
                 </View>
-                <View>
-                    {/* Button */}
+                <View style={styles.buttonContainer}>
+                    <Button 
+                        onPress={() => console.log('me apertaram!!!!')}
+                        title="Add"
+                    />
                 </View>
             </View>
         )
@@ -18,7 +21,13 @@ export default class TodoForm extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    container:{
-        
+    formContainer:{
+        flexDirection: 'row'
+    },
+    inputContainer: {
+        flex: 4
+    },
+    buttonContainer: {
+        flex: 1
     }
 })
