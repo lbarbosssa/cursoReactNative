@@ -1,5 +1,6 @@
 import React from "react";
 import { Text } from "react-native";
+import Padrao from '../estilo/Estilo'
 
 // export default function(props) {
 //   return <Text>{ props.texto }!</Text>;
@@ -12,7 +13,7 @@ import { Text } from "react-native";
 
 //Se for devolver uma linha de codigo, não precisa envover em chaves e nem informar return
 export default props => 
-    <Text>Arrow 1: { props.texto }!</Text> 
+    <Text style={Padrao.ex}>Arrow 1: { props.texto }!</Text> 
 
 //Uma forma de devolver mais que um elemeto sem View, é num array
 // export default props => [
