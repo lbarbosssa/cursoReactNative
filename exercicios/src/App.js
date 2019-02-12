@@ -1,6 +1,7 @@
 
 import React, {Component} from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, View} from 'react-native';
+import Simples from './componentes/Simples'
 
 // export default function (){
 //   return (
@@ -15,8 +16,7 @@ import { StyleSheet, Text, View} from 'react-native';
    render() {
      return (
        <View style={styles.container}>
-         <Text style={styles.f20}>App</Text>
-        
+         <Simples texto="Texto via props"/>
        </View>
      );
    }
@@ -27,8 +27,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center', 
-  },
-  f20: {
-    fontSize: 40
   }
 });
