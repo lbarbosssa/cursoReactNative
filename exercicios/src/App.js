@@ -4,6 +4,7 @@ import { StyleSheet, View} from 'react-native';
 
 import Simples from './componentes/Simples'
 import PareImpar from './componentes/PareImpar'
+import Inverter, { MegaSena } from './componentes/Multi'
 
 // export default function (){
 //   return (
@@ -20,6 +21,8 @@ import PareImpar from './componentes/PareImpar'
        <View style={styles.container}>
          <Simples texto="Texto via props"/>
          <PareImpar numero={3}/>
+         <Inverter texto="React Native" />
+         <MegaSena numeros={3}/>
        </View>
      );
    }
