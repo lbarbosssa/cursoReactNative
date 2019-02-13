@@ -1,15 +1,18 @@
 import React from 'react';
-import { StyleSheet, View} from 'react-native';
 
 import Simples from './componentes/Simples'
 import PareImpar from './componentes/PareImpar'
 import Inverter, { MegaSena } from './componentes/Multi'
 import Contador from './componentes/Contador'
 import Plataforma from './componentes/Plataformas'
+import ValidarProps from './componentes/ValidarProps'
 
 import { createDrawerNavigator } from 'react-navigation'
 
 export default createDrawerNavigator({
+    ValidarProps: {
+        screen: () => <ValidarProps ano={18} />
+    },
     Plataforma: {
         screen: Plataforma
     },
