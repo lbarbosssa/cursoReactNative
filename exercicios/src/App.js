@@ -1,7 +1,9 @@
 
 import React, {Component} from 'react';
 import { StyleSheet, View} from 'react-native';
+
 import Simples from './componentes/Simples'
+import PareImpar from './componentes/PareImpar'
 
 // export default function (){
 //   return (
@@ -17,6 +19,7 @@ import Simples from './componentes/Simples'
      return (
        <View style={styles.container}>
          <Simples texto="Texto via props"/>
+         <PareImpar numero={3}/>
        </View>
      );
    }
