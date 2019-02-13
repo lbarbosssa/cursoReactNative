@@ -9,10 +9,16 @@ import ValidarProps from './componentes/ValidarProps'
 import Evento from './componentes/Evento'
 import Avo from './componentes/ComunicacaoDireta'
 import TextoSincronizado from './componentes/ComunicacaoIndireta'
+import ListaFlex from './componentes/ListaFlex' 
+
 
 import { createDrawerNavigator } from 'react-navigation'
 
 export default createDrawerNavigator({
+    ListaFlex: {
+        screen: ListaFlex,
+        navigationOptions: { title: 'Lista de Alunos' }
+    },
     TextoSincronizado: {
         screen: TextoSincronizado
     },
