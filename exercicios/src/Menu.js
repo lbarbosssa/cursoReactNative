@@ -6,10 +6,14 @@ import Inverter, { MegaSena } from './componentes/Multi'
 import Contador from './componentes/Contador'
 import Plataforma from './componentes/Plataformas'
 import ValidarProps from './componentes/ValidarProps'
+import Evento from './componentes/Evento'
 
 import { createDrawerNavigator } from 'react-navigation'
 
 export default createDrawerNavigator({
+    Evento: {
+        screen: Evento
+    },
     ValidarProps: {
         screen: () => <ValidarProps ano={18} />
     },
