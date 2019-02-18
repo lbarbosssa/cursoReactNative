@@ -17,11 +17,13 @@ import { createDrawerNavigator } from 'react-navigation'
 
 export default createDrawerNavigator({
     Flex: {
-        screen: Flex
+        screen: Flex,
     },
     ListaFlex: {
         screen: ListaFlex,
-        navigationOptions: { title: 'Lista de Alunos' }
+        navigationOptions: { 
+            title: 'Lista de Alunos', 
+        }
     },
     TextoSincronizado: {
         screen: TextoSincronizado
