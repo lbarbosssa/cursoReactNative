@@ -1,13 +1,19 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import Button from './src/Button';
+import Display from './src/Display';
 
 export default class App extends Component {
+  state = {
+    displayValue: '0'
+  }
+
   render() {
     return (
       <View style={styles.container}>
+        <Display value={this.state.displayValue}/>
         <View style={styles.buttons}>
-          <Button label='Ac' />
+          <Button label='AC' />
           <Button label='/' />
           <Button label='7' />
           <Button label='8' />
@@ -24,7 +30,6 @@ export default class App extends Component {
           <Button label='0' />
           <Button label='.' />
           <Button label='=' />
-
         </View>
       </View>
     );
@@ -41,3 +46,4 @@ const styles = StyleSheet.create({
   }
   
 });
+ 
